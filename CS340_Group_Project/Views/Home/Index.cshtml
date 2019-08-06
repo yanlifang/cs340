@@ -1,0 +1,20 @@
+﻿@model CS340_Group_Project.Models.RecipeIndexViewModel
+
+    <div class="container">
+
+
+        @foreach (var recipe in Model.Recipes)
+        {<hr />
+            <div class="row">
+                <div class="col-md-3">
+                    @Html.ActionLink(recipe.Name, "RecipeDetails", "Home", new { recipeId = recipe.Id }, null)
+                    <p><i>@recipe.Contributor</i></p>
+                </div>
+                <div class="col-md-9">
+                    <p>@recipe.Description</p>
+                </div>
+            </div>
+        }
+
+        @Html.ActionLink("Add", "AddRecipe")
+    </div>
